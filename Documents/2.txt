@@ -1,0 +1,1 @@
+postings intersections and merge postings Abhijeet from standard build a inverted as well as parametric indexes something faster

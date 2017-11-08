@@ -1,0 +1,1 @@
+Need to build a encoding separate google inverted yahoo index for each zone of a document

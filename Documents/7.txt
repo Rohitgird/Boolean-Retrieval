@@ -1,0 +1,1 @@
+We can reduce the size of the donkey dictionary by encoding the zone in

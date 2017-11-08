@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<style>
+		body{display:-webkit-flex;display:-ms-flex;display:flex;justify-content:center;-ms-align-items:center;align-items:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;font-family:sans-serif}
+		#queryInput{
+	margin-top: 270px;
+	text-indent: 65px;
+    font-size: 5em;
+    border: none;
+    outline: none;
+        border-bottom: 2px solid white;
+
+}
+
+
+.bg {
+  background: linear-gradient(
+    to bottom right, 
+    #FF8235, #ffff1c, 
+    #92FE9D, #00C9FF, 
+    #a044ff, #e73827);
+  background-repeat: no-repeat;
+  background-size: 1000% 1000%;
+  animation: gradient 150s ease infinite;
+}
+
+#queryInput {
+	background: transparent;
+	  color: white;  /* change [input cursor color] by this*/
+  text-shadow: 0px 0px 0px white; /* change [input font] by this*/
+  -webkit-text-fill-color: transparent;
+}
+
+.heading {
+	color: white;
+}
+
+.output {
+display:none;
+}
+.active:after {
+  content: '_';
+}
+
+
+input {
+	color: white;
+	text-shadow: none;
+     -webkit-text-fill-color: initial;
+}
+
+@keyframes gradient { 
+  0%{background-position:0% 0%}
+  50%{background-position:100% 100%}
+  100%{background-position:0% 0%}
+}
+
+input,
+textarea,
+[contenteditable] {
+  caret-color: white;
+}
+
+
+input:placeholder-shown {
+  color: white;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+
+button {
+  display: block;
+  outline: none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius: 50px;
+  background: #fff;
+  margin-top: 100px;
+  border: 2px solid #fffefe;
+  color: #ff55ca;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+button:hover {
+  color: white;
+  background: #f93a7f;
+}
+button:active {
+  letter-spacing: 2px;
+}
+button:after {
+  content: "SUBMIT";
+}
+
+.onclic {
+  width: 40px;
+  border-color: #bbbbbb;
+  border-width: 3px;
+  font-size: 0;
+  border-left-color: #1ECD97;
+  -webkit-animation: rotating 1.2s 0.25s linear infinite;
+          animation: rotating 1.2s 0.25s linear infinite;
+}
+.onclic:after {
+  content: "";
+}
+.onclic:hover {
+  color: #1ECD97;
+  background: white;
+}
+
+.validate {
+  font-size: 13px;
+  color: white;
+  background: #1ECD97;
+}
+.validate:after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+	</style>
+</head>
+<body class="bg">
+	<h1 class="heading prompt">Boolean Retreival Model</h1>
+	<form method="post" action="/cgi-bin/QueryResult.py">
+		<input type="text" name="quer" id="queryInput" placeholder="Enter Text Here ..."><br>
+	  <button id="button"></button>
+
+	</form>
+	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+  $( "#button" ).click(function() {
+    $( "#button" ).addClass( "onclic", 5250, validate);
+  });
+
+  function validate() {
+    setTimeout(function() {
+      $( "#button" ).removeClass( "onclic" );
+      $( "#button" ).addClass( "validate", 5450, callback );
+    }, 8250 );
+  }
+    function callback() {
+      setTimeout(function() {
+        $( "#button" ).removeClass( "validate" );
+      }, 10250 );
+    }
+  });
+	setTimeout(callback(),5000)
+
+</script>
+</body>
+</html>

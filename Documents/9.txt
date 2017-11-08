@@ -1,0 +1,1 @@
+The Boolean score function encoding for a zone takes on the value 1 if the query term shakespeare is present in the and zero otherwise
